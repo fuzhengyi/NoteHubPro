@@ -5,7 +5,7 @@ export default defineConfig({
   title: "大毛-笔记中小【NoteHub】",
   description: "A VitePress Site",
   // 基础路径
-  base: '/blogs/', // 替换为你的仓库名称
+  base: '/NoteHubPro/', // 替换为你的仓库名称
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -123,7 +123,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/Lianfeiru' }
+      { icon: 'github', link: 'https://github.com/fuzhengyi' }
     ],
     features: [
       {
