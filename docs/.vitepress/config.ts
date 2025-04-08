@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "大毛-笔记中小【NoteHub】",
+  title: "前端正义-笔记中小【NoteHub】",
   description: "A VitePress Site",
   // 基础路径
   base: '/NoteHubPro/', // 替换为你的仓库名称
