@@ -39,6 +39,12 @@ export default defineConfig({
           { text: '开发实践', link: '/harmonyOS-development/practice' },
         ],
       },
+      {
+        text: '面经',
+        items: [
+          { text: '项目重难点', link: '/interview-experience/project' },
+        ],
+      },
     ],
 
     // sidebar: [
@@ -128,32 +134,32 @@ export default defineConfig({
     features: [
       {
         title: '前端基础(HTML/CSS/JavaScript)',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+        details: '构建动态网页的三大支柱',
         link: '/frontend-basics/html', // 跳转路径
       },
       {
         title: '框架(Vue2/Vue3/React)',
-        details: 'React 是一个用于构建用户界面的 JavaScript 库',
+        details: '现代前端开发框架',
         link: '/frontend-framework/vue2',
       },
       {
         title: '工程化(Webpack/Vite)',
-        details: 'Vue 是一个渐进式 JavaScript 框架',
+        details: '前端工程化的利器',
         link: '/frontend-tools/webpack',
       },
       {
-        title: '工浏览器原理/性能优化',
-        details: 'Vue 是一个渐进式 JavaScript 框架',
+        title: '浏览器原理/性能优化',
+        details: '深入理解浏览器原理与性能优化',
         link: '/browser-principlles/browser',
       },
       {
         title: '服务开发（Node.js/Python）',
-        details: 'Vue 是一个渐进式 JavaScript 框架',
+        details: '服务端开发的核心：Node.js与Python',
         link: '/backend/nodejs',
       },
       {
         title: '鸿蒙开发',
-        details: 'Vue 是一个渐进式 JavaScript 框架',
+        details: '鸿蒙开发：开启万物互联的新篇章',
         link: '/harmonyOS-development/introduction',
       },
     ],
