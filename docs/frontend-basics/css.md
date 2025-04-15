@@ -1,5 +1,5 @@
-# Flex/Grid布局方案
-## Flexbox 布局
+## Flex/Grid布局方案
+### Flexbox 布局
 Flexbox 适用于一维布局（要么是行方向，要么是列方向），非常适合用于导航栏、侧边栏、卡片等场景。
 基本概念
 - 容器（flex container）: 应用 display: flex 或 display: inline-flex 的元素。
@@ -7,7 +7,7 @@ Flexbox 适用于一维布局（要么是行方向，要么是列方向），非
 - 主轴（main axis）: 定义了项目的排列方向，默认为水平方向。
 - 交叉轴（cross axis）: 与主轴垂直的方向。
 
-## Grid 布局
+### Grid 布局
 CSS Grid 适用于二维布局（同时考虑行和列），非常适合用于整个页面的布局、复杂的网格系统等场景。
 基本概念
 - 容器（grid container）: 应用 display: grid 或 display: inline-grid 的元素。
@@ -17,8 +17,8 @@ CSS Grid 适用于二维布局（同时考虑行和列），非常适合用于�
 - 网格单元格（grid cells）: 由相邻的网格线形成的矩形区域。
 - 网格区域（grid areas）: 一组网格单元格组成的矩形区域。
 
-# 移动端常见布局
-## 响应式网格布局
+## 移动端常见布局
+### 响应式网格布局
 1. 在桌面端（宽屏），每行显示4个产品卡片。在平板电脑上，每行显示3个产品卡片。在手机上，每行显示1到2个产品卡片。
 ```html
 <style>
@@ -73,7 +73,7 @@ CSS Grid 适用于二维布局（同时考虑行和列），非常适合用于�
   <div class="product-item">产品 8</div>
 </div>
 ```
-## 粘性（Sticky）头部和底部
+### 粘性（Sticky）头部和底部
 1. 纯CSS方案
 ```html
 <style>
@@ -113,6 +113,42 @@ CSS Grid 适用于二维布局（同时考虑行和列），非常适合用于�
   </div>
 </body>
 ```
-## 折叠面板（Accordion）
-## 抽屉式侧边栏（Off-canvas Navigation）
-## 卡片式布局
+## CSS常见面试题
+### 文本溢出添加省略号
+1. 纯css方案
+```CSS
+/* 单行文本 */
+
+/* 多行文本 */
+/* 只兼容webkit内核的浏览器 */
+.text-container {
+  height: 100px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;  /* 设置你想要显示的最大行数 */
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+```
+2. js方案
+```js
+function truncateText(element, maxLines) {
+    const lineHeight = parseFloat(window.getComputedStyle(element).lineHeight);
+    const maxHeight = lineHeight * maxLines;
+    
+    if (element.scrollHeight > maxHeight) {
+        element.style.position = 'relative';
+        element.style.overflow = 'hidden';
+        element.style.maxHeight = `${maxHeight}px`;
+        
+        const ellipsis = document.createElement('span');
+        ellipsis.style.position = 'absolute';
+        ellipsis.style.bottom = 0;
+        ellipsis.style.left = 0;
+        ellipsis.style.backgroundColor = 'white'; // 根据背景颜色调整
+        ellipsis.textContent = '...';
+        element.appendChild(ellipsis);
+    }
+}
+```

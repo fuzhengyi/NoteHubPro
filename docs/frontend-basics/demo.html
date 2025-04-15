@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sticky Header</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .sticky-container {
+      position: sticky;
+      top: 0; /* 固定在顶部 */
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+      z-index: 1000;
+    }
+
+    .content {
+      height: 2000px; /* 模拟长内容 */
+      padding: 20px;
+    }
+
+
+    /* 基础样式 */
+    .product-grid {
+        display: grid;
+        gap: 16px; /* 设置项目之间的间距 */
+        padding: 16px;
+    }
+
+    .product-item {
+        background-color: #f8f9fa;
+        border: 1px solid #ddd;
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* 默认设置 - 对于大屏幕，比如桌面 */
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr); /* 四列等宽 */
+    }
+
+    /* 平板电脑 - 当窗口宽度小于1200px时 */
+    @media (max-width: 1200px) {
+        .product-grid {
+            grid-template-columns: repeat(3, 1fr); /* 三列等宽 */
+        }
+    }
+
+    /* 移动设备 - 当窗口宽度小于768px时 */
+    @media (max-width: 768px) {
+        .product-grid {
+            grid-template-columns: repeat(2, 1fr); /* 两列等宽 */
+        }
+    }
+
+    /* 更小的移动设备 - 当窗口宽度小于576px时 */
+    @media (max-width: 576px) {
+        .product-grid {
+            grid-template-columns: 1fr; /* 单列 */
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">Header Section</div>
+  <div class="sticky-container">
+    搜索栏或选项卡内容
+  </div>
+  <div class="content">
+    页面主要内容（向下滑动查看效果）
+
+    <!-- grid布局方案 实现响应式 -->
+    <div class="product-grid">
+      <div class="product-item">产品 1</div>
+      <div class="product-item">产品 2</div>
+      <div class="product-item">产品 3</div>
+      <div class="product-item">产品 4</div>
+      <div class="product-item">产品 5</div>
+      <div class="product-item">产品 6</div>
+      <div class="product-item">产品 7</div>
+      <div class="product-item">产品 8</div>
+    </div>
+  </div>
+</body>
+</html>
