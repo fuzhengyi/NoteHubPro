@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Large Network Topology - Visible Area Rendering with Zoom</title>
+  <style>
+    #main {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      place-content: center;
+    }
+    .item1{
+        width: 20vw;
+        height: 20vh;
+        background-color: red;
+        margin-right: 10px;
+    }
+    .item2{
+        flex:1;
+        width: 0;
+        background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <div class="item item1"></div>
+    <div class="item item2"></div>
+  </div>
+</body>
+</html>
