@@ -293,6 +293,55 @@ console.log(child.hobbies);
     
 ```
 ## 垃圾回收 & 运行机制
+## 作用域链
+当查找变量的时候，会先从当前上下文的变量对象中查找，如果没有找到，就会从父级(词法层面上的父级)执行上下文的变量对象中查找，一直找到全局上下文的变量对象，也就是全局对象。这样由多个执行上下文的变量对象构成的链表就叫做作用域链。
+## 面向对象编程
+
+## 原型及原型链
+![alt text](image-2.png)
+```js
+// 构造函数
+function Person() {}
+
+// 实例
+var person = new Person();
+console.log(person.__proto__ === Person.prototype); // true
+console.log(Person === Person.prototype.constructor); // true
+console.log(Object.getPrototypeOf(person) === Person.prototype) // true
+console.log(Object.prototype.__proto__ === null) // true 原型链顶端
+```
+## 前端异步编程
+
+## 浏览器事件
+### 浏览器事件模型
+#### DOM事件
+
+## 浏览器请求
+
+## 模块化
+
+## 函数式编程
+### 什么是柯里化？
+curry 的概念很简单：只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。
+你可以一次性地调用 curry 函数，也可以每次只传一个参数分多次调用。
+```js
+var add = function(x) {
+  return function(y) {
+    return x + y;
+  };
+};
+
+var increment = add(1);
+var addTen = add(10);
+
+increment(2);
+// 3
+
+addTen(2);
+// 12
+```
+
+## 垃圾回收 & 运行机制
 1. 栈内存：由编译器直接控制，函数执行完毕时立即释放，无需垃圾回收算法。
     - 存储内容：原始类型、执行上下文
     - 分配方式：编译器自动分配
@@ -305,5 +354,7 @@ console.log(child.hobbies);
     - 回收机制：标记清除、引用计数等算法
     - 性能开销：较高（需遍历对象图）
     - 内存碎片：可能存在（需内存整理）
+
+## for of 与 for in 的区别
 
 ## for of 与 for in 的区别
