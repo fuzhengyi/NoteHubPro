@@ -45,6 +45,7 @@ var add = function(x) {
 };
 
 var increment = add(1);
+
 var addTen = add(10);
 
 increment(2);
