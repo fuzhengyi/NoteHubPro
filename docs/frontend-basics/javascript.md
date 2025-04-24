@@ -299,7 +299,7 @@ console.log(child.hobbies);
 ## 面向对象编程
 
 ## 原型及原型链
-![alt text](image-2.png)
+![alt text](img/image-2.png)
 ```js
 // 构造函数
 function Person() {}
