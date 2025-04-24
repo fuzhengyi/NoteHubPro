@@ -292,6 +292,7 @@ child.sayAge();
 console.log(child.hobbies);
     
 ```
+![alt text](img/1.drawio.png)
 ## 垃圾回收 & 运行机制
 ## 作用域链
 当查找变量的时候，会先从当前上下文的变量对象中查找，如果没有找到，就会从父级(词法层面上的父级)执行上下文的变量对象中查找，一直找到全局上下文的变量对象，也就是全局对象。这样由多个执行上下文的变量对象构成的链表就叫做作用域链。
@@ -357,4 +358,24 @@ addTen(2);
 
 ## for of 与 for in 的区别
 
-## for of 与 for in 的区别
+## JavaScript数字精度
+```js
+0.1 + 0.2 === 0.3 //false
+```
+在JavaScript语言中，数字计算都是转化成二进制后再进行运算，计算机存储双精度浮点数需要先把十进制数转换为二进制的科学记数法的形式，然后计算机以自己的规则｛符号位+（指数位+指数偏移量的二进制）+小数部分｝存储二进制的科学记数法
+因为存储时有位数限制（64位），并且某些十进制的浮点数在转为二进制数时会出现无限循环，会造成二进制的舍入操作（0舍入1），当再转换为十进制时就造成了计算误差。
+
+### 数字精度解决方案
+1. 使用toPrecision凑整并parseFloat转换成数字后再显示，如下：
+```js
+parseFloat(1.4000000000000000001.toPrecision(12)) === 1.4 //true
+// 封装成方法
+function strip(num, precision = 12) ｛
+  return +parseFloat(num.toPrecision(precision));
+｝
+```
+2. 小数转为整数后在进行运算
+3. 使用第三方库 Math.js, BigDecimal.js
+
+## xhr和fetch区别
+![alt text](img/2.drawio.png)
