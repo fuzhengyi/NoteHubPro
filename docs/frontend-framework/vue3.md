@@ -163,3 +163,6 @@ setup(){
   const { $http } = getCurrentInstance()
 }
 ```
+
+## vuex和pinia
+![alt text](img/1.drawio.png)
