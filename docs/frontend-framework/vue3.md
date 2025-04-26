@@ -166,3 +166,24 @@ setup(){
 
 ## vuex和pinia
 ![alt text](img/1.drawio.png)
+
+## vue2和vue3
+1. Composition Api
+  - vue3：引入Composition Api，提供了更灵活的逻辑复用。
+  - vue2：Options API，通过选项（如 data、methods、computed 等）来组织组件逻辑，缺少一种比较干净的的在多个组件之间提取和复用逻辑的机制
+2. 性能提升
+  - 体积优化
+    * 移除一些不常用的API
+    * 引入tree-shaking机制打包体积更小，因为vue2项目是单列的
+  - 编译优化
+    * diff算法优化：vue3在diff算法中增加了静态标记，在会发生变化的地方添加一个flag标记，下次发生变化的时候直接找该地方进行比较
+    * 静态提升：vue3中对不参与更新的元素，会做静态提升，只会创建一次，在渲染时直接复用。
+    * 事件监听缓存：
+    * SSR优化：当静态内容大到一定量级的时候，会用createStaticVNode方法在客户端去生成一个static node，这些静态node，会被直接innerHtml，就不需要创建对线，然后根据对象渲染。
+  - 响应式系统
+    * 在vue2中，数据劫持是通过Object.defineProperty,这个API不能检测对象属性的添加和删除。而且在面对嵌套层级比较深的情况下，就存在性能问题。
+    * vue3是通过proxy监听整个对象，它并不能监听到内部深层次的对象变化，vue3的处理方式是在getter中去递归响应式，这样的好处是真正访问到内部对象才会变成响应式，而不是无脑递归。
+3. 优化方案
+  - 源码
+    * 源码管理，使用了monorepo的方式维护代码，根据功能将不同的模块拆分到packages目录下面的不同子目录中，使得模块拆分更细化，易于理解和维护，reactivity响应式库是可以独立于Vue使用的，方便使用。
+    * Typescript，基于ts编写，提供了更好的类型检查，支持更复杂类型推导
