@@ -1,11 +1,89 @@
 ## this 
 
 ## 闭包
-闭包（Closure）指的是一个函数能够访问并记住其词法作用域（Lexical Scope）即使这个函数在其词法作用域之外执行。换句话说，闭包让函数可以“捕获”并保存它定义时的作用域，即使在定义它的作用域已经销毁的情况下。(闭包是指有权访问另一个函数作用域中的变量的函数。简单来说，当一个内部函数引用了外部函数的变量时，就形成了闭包。)
+闭包（Closure）闭包让函数可以“捕获”并保存它定义时的作用域，即使在定义它的作用域已经销毁的情况下
 闭包的核心在于：
 - 函数嵌套：一个函数内部定义了另一个函数。
 - 作用域链：内部函数可以访问外部函数的变量，即使外部函数已经执行完毕。
 - 持久化变量：外部函数的变量在内部函数中被引用后，不会被垃圾回收机制销毁。
+### 闭包的应用
+函数作为参数被传递
+函数作为返回值被返回
+应用实例：
+1. 数据封装和私有变量，
+2. 回调函数和事件处理程序
+3. 记忆化（Memoization）记忆化是一种优化技术，用于缓存函数的结果，以避免重复计算
+4. 模块模式 模块模式利用闭包来创建私有变量和方法，从而实现模块化编程。
+5. 高阶函数 高阶函数接受函数作为参数或返回函数，闭包在这种情况下非常有用。
+6. 维护状态 闭包可以用于维护和更新状态，特别是在没有类的情况下。
+7. 实现迭代器 闭包可以用来实现自定义的迭代器。
+```js
+// 数据封装和私有变量
+function createPerson(name) {
+    let age = 25; // 私有变量
+
+    return {
+        getName: function() {
+            return name;
+        },
+        getAge: function() {
+            return age;
+        },
+        setAge: function(newAge) {
+            if (newAge > 0) {
+                age = newAge;
+            }
+        }
+    };
+}
+
+const person = createPerson("Alice");
+
+console.log(person.getName()); // 输出: Alice
+console.log(person.getAge());  // 输出: 25
+person.setAge(30);
+console.log(person.getAge());  // 输出: 30
+console.log(person.age);       // 输出: undefined （无法直接访问私有变量）
+
+// 回调函数和事件处理程序
+function setupButton(buttonId, message) {
+    const button = document.getElementById(buttonId);
+
+    button.addEventListener('click', function() {
+        console.log(message);
+    });
+}
+
+setupButton('myButton', 'Button clicked!');
+
+// HTML:
+// <button id="myButton">Click Me</button>
+
+// 记忆化（Memoization）
+function memoize(fn) {
+    const cache = {};
+
+    return function(...args) {
+        const key = JSON.stringify(args);
+
+        if (cache[key]) {
+            return cache[key];
+        }
+
+        const result = fn.apply(this, args);
+        cache[key] = result;
+        return result;
+    };
+}
+
+const fibonacci = memoize(function(n) {
+    if (n <= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+});
+
+console.log(fibonacci(10)); // 输出: 55
+console.log(fibonacci(10)); // 输出: 55 （从缓存中获取）
+```
 ## 作用域链
 当查找变量的时候，会先从当前上下文的变量对象中查找，如果没有找到，就会从父级(词法层面上的父级)执行上下文的变量对象中查找，一直找到全局上下文的变量对象，也就是全局对象。这样由多个执行上下文的变量对象构成的链表就叫做作用域链。
 ## 面向对象编程
