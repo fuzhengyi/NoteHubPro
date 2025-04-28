@@ -26,7 +26,7 @@ class TaskPro {
     }
 }
 
-// 创建 TaskPro 实例
+// 创建 TaskPro 实例 
 const app = new TaskPro()
 
 // 添加第一个任务
