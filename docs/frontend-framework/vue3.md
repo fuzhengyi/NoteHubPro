@@ -150,7 +150,7 @@ const vModelCapitalize = {
 
 ## 生命周期
 ## vue组件库项目架构设计
-## vue3中如何像vue2一样注册全局使用的属性和方法
+## vue3中如何像vue2一样注册全局使用的属性和方法 
 ```js
 // vue2
 Vue.prototype.$http = () => {}
